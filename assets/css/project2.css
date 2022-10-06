@@ -1,0 +1,21 @@
+.container {
+  width: auto;
+  margin: auto;
+  margin-top: 150px;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.current-time, .alarm-time{
+    font-size: 100px;
+    border: 5px solid #fff;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 10px;
+}
+.alarm {
+    font-size: 30px;
+    margin-top: 30px;
+}
