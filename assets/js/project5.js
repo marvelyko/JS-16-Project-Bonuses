@@ -5,9 +5,6 @@ var finalnumResult;
 var firstentNum = window.prompt();
 var secondentNum = window.prompt();
 
-console.log(firstentNum);
-console.log(secondentNum);
-
 firstNum.textContent = firstentNum;
 secondNum.textContent = secondentNum;
 
@@ -18,4 +15,3 @@ if(firstentNum > secondentNum){
 }
 
 finalNum.textContent = finalnumResult;
-console.log(finalnumResult);
