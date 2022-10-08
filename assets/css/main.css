@@ -38,3 +38,19 @@ body {
   line-height: 1.4rem;
   margin-top: 5px;
 }
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  align-items: center;
+}
+.author {
+  text-decoration: underline;
+}
+.fa-facebook {
+  background: #fff;
+  color: #3b5998;
+  border-radius: 50px;
+  padding: 10px 14px;
+  margin: auto 10px;
+}
