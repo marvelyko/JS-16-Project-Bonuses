@@ -30,9 +30,9 @@
   margin-bottom: 0rem;
   color: #000;
 }
-.result{
-    font-size: 2rem;
-    color: #000;
+.result {
+  font-size: 2rem;
+  color: #000;
 }
 .score {
   font-size: 4rem;
@@ -122,7 +122,8 @@
   background-color: black;
 }
 
-.player_winner .name, .player_winner .result{
+.player_winner .name,
+.player_winner .result {
   font-weight: 700;
   color: darkorchid;
 }
