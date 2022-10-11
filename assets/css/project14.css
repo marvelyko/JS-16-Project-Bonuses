@@ -1,0 +1,43 @@
+.container {
+  background: rgb(177, 177, 177);
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+}
+.quizapp{
+    text-align: center;
+    font-size: 30px;
+}
+.control-buttons button {
+  width: 100%;
+  background-color: rgb(20, 66, 119);
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+.btn {
+  margin-top: 10px;
+  border: 1px solid white;
+  background-color: darkblue;
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: block;
+  width: 100%;
+  color: white;
+  outline: none;
+}
+.hidden {
+  display: none;
+}
+.correct {
+  background: green;
+}
+.wrong {
+  background: red;
+}

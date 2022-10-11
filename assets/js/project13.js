@@ -35,7 +35,6 @@ function add_number(button_number_par) {
         current_operand_text.textContent += button_number_par.innerHTML;
         current_operand = current_operand_text.textContent;
       }
-
     });
   });
 }
@@ -56,7 +55,6 @@ button_operation.forEach((button_operation_par) => {
 
       const prev = parseFloat(previous_operand);
       const current = parseFloat(current_operand);
-
 
       switch (current_operation) {
         case "+":
@@ -98,70 +96,66 @@ button_operation.forEach((button_operation_par) => {
 
 // Equal Button
 
-button_equal.addEventListener('click', () => {
-    if (
-        previous_operand_text.textContent.includes("÷") ||
-        previous_operand_text.textContent.includes("×") ||
-        previous_operand_text.textContent.includes("+") ||
-        previous_operand_text.textContent.includes("-") ||
-        previous_operand_text.textContent.includes("%") ||
-        previous_operand_text.textContent.includes("^")
-      ) {
-        let result;
-  
-        const prev = parseFloat(previous_operand);
-        const current = parseFloat(current_operand);
-  
-  
-        switch (current_operation) {
-          case "+":
-            result = current + prev;
-            break;
-          case "-":
-            result = prev - current;
-            break;
-          case "×":
-            result = current * prev;
-            break;
-          case "÷":
-            result = prev / current;
-            break;
-          case "%":
-            result = (prev * current) / 100;
-            break;
-          case "^":
-            result = prev ** current;
-            break;
-          default:
-            break;
-        }
-       current_operand_text.textContent = result;
-       current_operand = 0;
-       previous_operand_text.textContent = '';
-       
-      } else {
-        return;
-      }
-})
+button_equal.addEventListener("click", () => {
+  if (
+    previous_operand_text.textContent.includes("÷") ||
+    previous_operand_text.textContent.includes("×") ||
+    previous_operand_text.textContent.includes("+") ||
+    previous_operand_text.textContent.includes("-") ||
+    previous_operand_text.textContent.includes("%") ||
+    previous_operand_text.textContent.includes("^")
+  ) {
+    let result;
 
-// Delete button 
+    const prev = parseFloat(previous_operand);
+    const current = parseFloat(current_operand);
 
-button_delete.addEventListener('click', () => {
-    let text = current_operand_text.textContent;
-    current_operand_text.textContent = text.slice(0,-1)
-    current_operand = current_operand_text.textContent;
-
-    if(current_operand_text.textContent === '') {
-        current_operand_text.textContent = 0;
-        current_operand = 0;
+    switch (current_operation) {
+      case "+":
+        result = current + prev;
+        break;
+      case "-":
+        result = prev - current;
+        break;
+      case "×":
+        result = current * prev;
+        break;
+      case "÷":
+        result = prev / current;
+        break;
+      case "%":
+        result = (prev * current) / 100;
+        break;
+      case "^":
+        result = prev ** current;
+        break;
+      default:
+        break;
     }
-})
+    current_operand_text.textContent = result;
+    current_operand = 0;
+    previous_operand_text.textContent = "";
+  } else {
+    return;
+  }
+});
+
+// Delete button
+
+button_delete.addEventListener("click", () => {
+  let text = current_operand_text.textContent;
+  current_operand_text.textContent = text.slice(0, -1);
+  current_operand = current_operand_text.textContent;
+
+  if (current_operand_text.textContent === "") {
+    current_operand_text.textContent = 0;
+    current_operand = 0;
+  }
+});
 
 //Clear button
 
-button_clear.addEventListener('click', () => {
-    current_operand = 0;
-    current_operand_text.textContent = 0;
-    previous_operand = 0;
-    previous_operand_text.textContent = '';
-})
+button_clear.addEventListener("click", () => {
+  current_operand = current_operand_text.textContent = previous_operand = 0;
+  previous_operand_text.textContent = "";
+});
