@@ -1,8 +1,6 @@
-body{
-    color: #000;
-}
 #map {
     height: 80vh;
     width: 90%;
     margin: auto;
+    color: #000;
   }
