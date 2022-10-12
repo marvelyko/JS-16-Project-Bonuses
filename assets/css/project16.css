@@ -1,0 +1,33 @@
+.weather_container{
+    background: rgb(83, 96, 211);
+    width: 400px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 10px
+}
+.search_container{
+    width: 100%;
+}
+.search_container input{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+}
+.search_container button{
+    background: rgb(9, 9, 107);
+    color: #fff;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.weather{
+    padding: 10px 0;
+}
+.city{
+    font-size: 25px;
+    font-weight: bold;
+}
