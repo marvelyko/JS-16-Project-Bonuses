@@ -11,7 +11,15 @@ const paragraphs = [
 const typingText = document.querySelector(".typing-text");
 const tryAgainBtn = document.querySelector("button");
 const inputField = document.querySelector(".input-field");
-let charIndex = 0;
+const mistakeTag = document.querySelector(".mistake span");
+const cpmTag = document.querySelector(".cpm span");
+const wpmTag = document.querySelector(".wpm span");
+const timeTag = document.querySelector(".time span b");
+
+let timer,
+  maxtime = 60,
+  timeLeft = maxtime,
+  charIndex = (isTyping = mistakes = 0);
 
 const randomParagraph = () => {
   const randomIndex = Math.floor(Math.random() * paragraphs.length);
@@ -28,19 +36,63 @@ const randomParagraph = () => {
 function initTyping() {
   const characters = typingText.querySelectorAll("span");
   let typedChar = inputField.value.split("")[charIndex];
-  if (typedChar == null) {
-    charIndex--;
-    characters[charIndex].classList.remove("correct", "incorrect");
-  } else {
-    if (characters[charIndex].innerText === typedChar) {
-      characters[charIndex].classList.add("correct");
-    } else {
-      characters[charIndex].classList.add("incorrect");
+  if (charIndex < characters.length - 1 && timeLeft > 0) {
+    if (!isTyping) {
+      timer = setInterval(initTimer, 1000);
+      isTyping = true;
     }
-    charIndex++;
+    if (typedChar == null) {
+      charIndex--;
+      if (characters[charIndex].classList.contains("incorrect")) {
+        mistakes--;
+      } else {
+      }
+      characters[charIndex].classList.remove("correct", "incorrect");
+    } else {
+      if (characters[charIndex].innerText === typedChar) {
+        characters[charIndex].classList.add("correct");
+      } else {
+        characters[charIndex].classList.add("incorrect");
+        mistakes++;
+      }
+      charIndex++;
+    }
+
+    let wpm = Math.round(
+      ((charIndex - mistakes) / 5 / (maxtime - timeLeft)) * 60
+    );
+    wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
+    mistakeTag.textContent = mistakes;
+    cpmTag.textContent = charIndex - mistakes;
+    wpmTag.textContent = wpm;
+  } else {
+    inputField.value = "";
+    clearInterval(timer);
   }
+}
+
+const initTimer = () => {
+  if (timeLeft > 0) {
+    timeLeft--;
+    timeTag.textContent = timeLeft;
+  } else {
+    clearInterval(timer);
+  }
+};
+
+function resetGame() {
+  inputField.value = "";
+  randomParagraph();
+  clearInterval(timer);
+  timeLeft = maxtime;
+  charIndex = isTyping = mistakes = 0;
+  timeTag.textContent = maxtime;
+  mistakeTag.textContent = mistakes;
+  cpmTag.textContent = 0;
+  wpmTag.textContent = 0;
 }
 randomParagraph();
 
 // tryAgainBtn.addEventListener("click", randomParagraph);
 inputField.addEventListener("input", initTyping);
+tryAgainBtn.addEventListener("click", resetGame);
